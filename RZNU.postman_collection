@@ -1,0 +1,870 @@
+{
+	"variables": [],
+	"info": {
+		"name": "RZNU",
+		"_postman_id": "97f10b73-7f26-c824-ad5b-b4eabaee1d79",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Plan",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all plans",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get plan details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans/2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create plan - missing name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400. Missing plan name\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create plan - missing date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400. Missing plan name\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"activity\" : \"test\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create plan - wrong date format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400. Wrong plan date format\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"activity\" : \"Plan\",\n\t\"date\" : \"12-23-2016 13:45\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create plan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200. Plan created\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"activity\" : \"Plan\",\n\t\"date\" : \"2016-12-23 13:45\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Post comment on plan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200. Comment is posted.\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans/2",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\" : \"Test comment\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete plan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404. Plan not found.\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/plans/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"description": "",
+			"item": [
+				{
+					"name": "Register - no mail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "0.0.0.0:8080/api/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register - no first name or last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "0.0.0.0:8080/api/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"filip.gulan@hotmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register - no password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 400\"] = responseCode.code === 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "0.0.0.0:8080/api/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"filip.gulan@hotmail.com\",\n\t\"first_name\" : \"Filip\",\n\t\"last_name\" : \"Gulan\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register - all params",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200 or 400\"] = responseCode.code === 200 || responseCode.code === 400;",
+									"",
+									"postman.setGlobalVariable(\"userID\", \"1\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "0.0.0.0:8080/api/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"filip.gulan@hotmail.com\",\n\t\"first_name\" : \"Filip\",\n\t\"last_name\" : \"Gulan\",\n\t\"password\" : \"Test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Ge user details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update user first/last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\" : \"Filip\",\n\t\"last_name\" : \"Gulan\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update user password - wrong old password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 401\"] = responseCode.code === 401;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"old_password\" : \"Filip\",\n\t\"password\" : \"Gulan\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update user password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"old_password\" : \"Test1\",\n\t\"password\" : \"Test1\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404 || responseCode.code === 403 || responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users/2",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users - unauthorized",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 401\"] = responseCode.code === 401;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.comTest",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb21UZXN0OlRlc3Qx",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all plans for user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "filip.gulan@hotmail.com",
+								"password": "Test1",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "0.0.0.0:8080/api/users/1/plans",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZmlsaXAuZ3VsYW5AaG90bWFpbC5jb206VGVzdDE=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Root",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "0.0.0.0:8080",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

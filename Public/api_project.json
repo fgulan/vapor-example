@@ -1,0 +1,1 @@
+{  "name": "Plnnr",  "version": "1.0.0",  "description": "RZNU RESTFul API project",  "title": "",  "url": "http://0.0.0.0:8080/api",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-12-06T14:21:46.358Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }}
