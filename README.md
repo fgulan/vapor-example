@@ -13,3 +13,4 @@ Join the welcoming community of fellow Vapor developers in [slack](http://vapor.
 ## 🔧 Compatibility
 
 This package has been tested on macOS and Ubuntu.
+Simple REST API using Swift and Vapor
